@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get "/" => "tpaga_charge#index"
+  post "/charge" => "tpaga_charge#charge"
   get 'tpaga_charge/index'
   post 'tpaga_charge/charge'
 

@@ -79,47 +79,42 @@
       });
     });
   </script>
-
-
 <% end %>
 
 
 <% content_for :content do %>
 
   <h1 class = "center"> SELECT YOUR PRODUCT!</h1>
-    <div class="container padding">
-      
+    <div class="container padding">   
       <%= form_tag("charge",  method: "post" ) do  %>
-
       	<div class="row">
        	  <div class="col-xs-4 ">
-	     	<a href="#" class="thumbnail">
-	      	  <%= image_tag "combo1.jpg", alt: "COMBO1", class: "img-rounded", style: "max-height:220px" %>
-	      	</a>
-
-	        <%= check_box_tag("products[]", "Combo 1", true) %>
-	      	<%= label_tag("Combo 1:") %>
-	      	$<%= label_tag("3000") %>
+    	     	<a href="#" class="thumbnail">
+    	      	  <%= image_tag "combo1.jpg", alt: "COMBO1", class: "img-rounded", style: "max-height:220px" %>
+          	</a>
+  	        <%= check_box_tag("products[]", "Combo 1", true) %>
+  	      	<%= label_tag("Combo 1:") %>
+  	      	$<%= label_tag("3000") %>
           </div>
-	      <div class="col-xs-4 ">
-	        <a href="#" class="thumbnail">
-	          <%= image_tag "combo2.jpg", alt: "COMBO2", class: "img-rounded", style: "max-height:220px" %>
-	        </a>
+  	      <div class="col-xs-4 ">
+  	        <a href="#" class="thumbnail">
+  	          <%= image_tag "combo2.jpg", alt: "COMBO2", class: "img-rounded", style: "max-height:220px" %>
+  	        </a>
 
-	        <%= check_box_tag("products[]", "Combo 2") %>
-	      	<%= label_tag("Combo 2:") %>
-	      	$<%= label_tag("4500") %>
+  	        <%= check_box_tag("products[]", "Combo 2") %>
+  	      	<%= label_tag("Combo 2:") %>
+  	      	$<%= label_tag("4500") %>
 
-	      </div>
-	      <div class="col-xs-4  " >
-	        <a href="#" class="thumbnail">
-	          <%= image_tag "combo3.jpg", alt: "COMBO3", class: "img-rounded", style: "max-height:220px" %>
-	        </a>
-	        <%= check_box_tag("products[]", "Combo 3") %>
-	      	<%= label_tag("Combo 3:") %>
-	      	$<%= label_tag("2800") %>
+  	      </div>
+  	      <div class="col-xs-4  " >
+  	        <a href="#" class="thumbnail">
+  	          <%= image_tag "combo3.jpg", alt: "COMBO3", class: "img-rounded", style: "max-height:220px" %>
+  	        </a>
+  	        <%= check_box_tag("products[]", "Combo 3") %>
+  	      	<%= label_tag("Combo 3:") %>
+  	      	$<%= label_tag("2800") %>
 
-	      </div>
+  	      </div>
       	</div>
     </div>
 
@@ -130,91 +125,78 @@
     </div>
 
 	  <div class="container">
-      
       <div class="panel panel-default">
         <div class="panel-heading panel-heading-custom"><h3>CREDIT CARD DETAILS</h3></div>
         <div class="panel-body form-text">
-          
-
-              <!-- Title form input -->
-              
-            <div class="row">
-              <div class="col-xs-6"> 
-                <div class='form-field'> 
-                  <div class="form-group">
-                  	<%= label_tag('cardnumber', 'Card number:') %>
-                    <%= text_field_tag(:cardnumber, nil, class: 'form-control cardnumber', required: 'required', placeholder: '•••• •••• •••• ••••', autocomplete: 'cardnumber') %>
-                    <span class="cardbrand"></span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-6"> 
-                <div class='form-field'>  
-                  <div class="form-group">
-                  	<%= label_tag('installments', 'Installments:') %>
-                    <%= text_field_tag(:installments, nil, class: 'form-control installments', maxlength: 2, required: 'required', autocomplete: 'installments') %>
-                  </div>
+             
+          <div class="row">
+            <div class="col-xs-6"> 
+              <div class='form-field'> 
+                <div class="form-group">
+                	<%= label_tag('cardnumber', 'Card number:') %>
+                  <%= text_field_tag(:cardnumber, nil, class: 'form-control cardnumber', required: 'required', placeholder: '•••• •••• •••• ••••', autocomplete: 'cardnumber') %>
+                  <span class="cardbrand"></span>
                 </div>
               </div>
             </div>
-              
-
-            <!-- Content form input -->
-            
-            <div class="row">
-              <div class="col-xs-6">
-                <div class='form-field'> 
-                  <div class="form-group">
-                	<%= label_tag('firstname', 'First name:') %>
-                    <%= text_field_tag(:firstname, nil, class: 'form-control', required: 'required', autocomplete: 'firstname') %>
-                  </div>
+            <div class="col-xs-6"> 
+              <div class='form-field'>  
+                <div class="form-group">
+                	<%= label_tag('installments', 'Installments:') %>
+                  <%= text_field_tag(:installments, nil, class: 'form-control installments', maxlength: 2, required: 'required', autocomplete: 'installments') %>
                 </div>
               </div>
-              <div class="col-xs-6">
-                <div class='form-field'> 
-                  <div class="form-group">
-                	<%= label_tag('lastname', 'Last name:') %>
-                    <%= text_field_tag(:lastname, nil, class: 'form-control', required: 'required', autocomplete: 'lastname') %> 
-                  </div>
-                </div>
-              </div>  
-            </div>              
-           
-
-              
-            <div class="row">
-              <div class="col-xs-2">
-                <div class='form-field'> 
-                 <div class="form-group">
-                 	<%= label_tag('duedate', 'Due date:') %>
-                    <%= text_field_tag(:duedate, nil, class: 'form-control duedate', required: 'required', placeholder: '••/••••', autocomplete: 'duedate') %>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-3">
-                <div class='form-field'> 
-                  <div class="form-group">
-                  	<%= label_tag('securitycode', 'Security code:') %>
-                    <%= text_field_tag(:securitycode, nil, class: 'form-control securitycode', required: 'required', placeholder: '••••', autocomplete: 'off') %>
-                  </div>
-                </div>
-              </div>
-
-            </div>              
-
-            <div class="form-group center">
-            	<%= submit_tag("Pay", class: 'btn btn-default') %>
             </div>
+          </div>
 
-
-            <div class="alert alert-danger validation" role="alert" hidden="false">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class='form-field'> 
+                <div class="form-group">
+              	<%= label_tag('firstname', 'First name:') %>
+                  <%= text_field_tag(:firstname, nil, class: 'form-control', required: 'required', autocomplete: 'firstname') %>
+                </div>
+              </div>
             </div>
+            <div class="col-xs-6">
+              <div class='form-field'> 
+                <div class="form-group">
+              	<%= label_tag('lastname', 'Last name:') %>
+                  <%= text_field_tag(:lastname, nil, class: 'form-control', required: 'required', autocomplete: 'lastname') %> 
+                </div>
+              </div>
+            </div>  
+          </div>              
+
+          <div class="row">
+            <div class="col-xs-2">
+              <div class='form-field'> 
+                <div class="form-group">
+               	  <%= label_tag('duedate', 'Due date:') %>
+                  <%= text_field_tag(:duedate, nil, class: 'form-control duedate', required: 'required', placeholder: '••/••••', autocomplete: 'duedate') %>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-3">
+              <div class='form-field'> 
+                <div class="form-group">
+                	<%= label_tag('securitycode', 'Security code:') %>
+                  <%= text_field_tag(:securitycode, nil, class: 'form-control securitycode', required: 'required', placeholder: '••••', autocomplete: 'off') %>
+                </div>
+              </div>
+            </div>
+          </div>              
+
+          <div class="form-group center">
+          	<%= submit_tag("Pay", class: 'btn btn-default') %>
+          </div>
+          <div class="alert alert-danger validation" role="alert" hidden="false">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          </div>
         </div>
       </div>
      </div>
-     <% end %> 
-
+   <% end %> 
 <% end %> 
 
 
