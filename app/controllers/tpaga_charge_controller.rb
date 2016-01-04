@@ -12,7 +12,7 @@ class TpagaChargeController < ApplicationController
   def charge
 
   	Tpaga::Swagger.configure do |config|
-  		config.api_key = '9jk59hpr858j34oibplotp839pdm7mau'
+  		config.api_key = 'd13fr8n7vhvkuch3lq2ds5qhjnd2pdd2'
 	end
 
   	@products = params['products']
