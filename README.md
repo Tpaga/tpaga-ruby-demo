@@ -33,7 +33,7 @@ Then, install dependencies by typing this line in the project path:
 $ bundler install
 ```
 
-Finally, run the server:
+Finally, run the server and look for http://localhost:xxxx/tpaga_charge/index in your browser:
 
 ```bash
 $ rails s

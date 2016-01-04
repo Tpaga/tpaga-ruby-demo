@@ -5,8 +5,6 @@ class TpagaChargeController < ApplicationController
   layout "default"
   def index
 
-
-
   end
 
   def charge
