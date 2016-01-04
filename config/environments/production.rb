@@ -76,4 +76,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # TPagaApi
+  config.tpaga_schema = 'https'
+  config.tpaga_host = 'sandbox.tpaga.co'
+  config.tpaga_base_path = '/api'
+  config.tpaga_api_key = ENV["TPAGA_API_KEY"]
+
 end

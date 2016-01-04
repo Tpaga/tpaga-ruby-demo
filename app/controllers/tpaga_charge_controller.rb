@@ -9,9 +9,8 @@ class TpagaChargeController < ApplicationController
 
   def charge
 
-  	Tpaga::Swagger.configure do |config|
-  		config.api_key = 'd13fr8n7vhvkuch3lq2ds5qhjnd2pdd2'
-	end
+  	config.tpaga =  ActiveSupport::OrderedOptions.new
+	  
 
   	@products = params['products']
   	@description = " " 

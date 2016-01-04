@@ -38,4 +38,11 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # TPagaApi
+  config.tpaga_schema = 'https'
+  config.tpaga_host = 'sandbox.tpaga.co'
+  config.tpaga_base_path = '/api'
+  config.tpaga_api_key = 'd13fr8n7vhvkuch3lq2ds5qhjnd2pdd2'
+
 end
