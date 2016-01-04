@@ -48,7 +48,7 @@ This demo takes your credit card information and creates a customer, assigns a c
 
 If you want to use this application with production configuration, you must set an environment variable called *TPAGA_API_KEY*. To do that you can follow the next steps:
 
-1. Add figaro to the gemfile and install it using bundler
+* Add figaro to the gemfile and install it using bundler
 
 ```rails
 	gem 'figaro' 
@@ -58,13 +58,13 @@ If you want to use this application with production configuration, you must set 
 	$ bundle install 
 ```
 	
-2. The gem provides a generator that creates a config/application.yml file and modifies the .gitignore file to prevent the file from being checked into a git repository.
+* The gem provides a generator that creates a config/application.yml file and modifies the .gitignore file to prevent the file from being checked into a git repository.
 
 ```bash
 	$ bundle exec figaro install
 ```
 
-3. Add the environment variable as key/value pair to config/application.yml:
+* Add the environment variable as key/value pair to config/application.yml:
 
 ```rails
 TPAGA_API_KEY: 'your_api_key'
