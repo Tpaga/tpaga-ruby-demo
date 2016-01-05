@@ -11,8 +11,8 @@ config.tpaga_api_key = 'd13fr8n7vhvkuch3lq2ds5qhjnd2pdd2'
 ```
 ## Requirements
 
-*Ruby on rails quirements.
-*Postgresql.
+* Ruby on rails quirements.
+* Postgresql.
 
 
 ## Getting Started
