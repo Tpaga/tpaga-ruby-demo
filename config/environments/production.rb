@@ -82,5 +82,6 @@ Rails.application.configure do
   config.tpaga_host = 'sandbox.tpaga.co'
   config.tpaga_base_path = '/api'
   config.tpaga_api_key = ENV["TPAGA_API_KEY"]
+  config.tpaga_pub_key = ENV["TPAGA_PUB_KEY"]
 
 end

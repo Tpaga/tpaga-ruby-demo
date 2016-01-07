@@ -1,12 +1,15 @@
 # tpaga-ruby-website-demo
 TPAGA RUBY WEBSITE DEMO
 
-For testing purposes, this demo uses the API key token "d13fr8n7vhvkuch3lq2ds5qhjnd2pdd2" in the Tpaga sandbox environment. You also can create a Tpaga account at https://sandbox.tpaga.co and change API credentials in the test environment at config/environments/test.rb
+Note: This demo includes tokenization functionality.
+
+For testing purposes, this demo uses the API key token "d13fr8n7vhvkuch3lq2ds5qhjnd2pdd2" in the Tpaga sandbox environment. You also can create a Tpaga account at https://sandbox.tpaga.co and change API and public credentials in the test environment at config/environments/test.rb
 
 ```ruby
 ...
 
 config.tpaga_api_key = 'd13fr8n7vhvkuch3lq2ds5qhjnd2pdd2'
+config.tpaga_pub_key = 'pk_test_qvbvuthlvqpijnr0elmtg5jh'
 
 ```
 ## Requirements
@@ -47,7 +50,7 @@ This demo takes your credit card information and creates a customer, assigns a c
 
 ## Production environment
 
-If you want to use this application with production configuration, you must set an environment variable called *TPAGA_API_KEY*. To do that you can follow the next steps:
+If you want to use this application with production configuration, you must set the environment variables called *TPAGA_API_KEY* and *TPAGA_PUB_KEY*. To do that you can follow the next steps:
 
 * Add figaro to the gemfile and install it using bundler
 
@@ -69,6 +72,7 @@ If you want to use this application with production configuration, you must set 
 
 ```rails
 TPAGA_API_KEY: 'your_api_key'
+TPAGA_PUB_KEY: 'your_public_key'
 ```
 
 ## Documentation

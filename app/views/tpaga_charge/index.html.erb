@@ -1,6 +1,7 @@
 <% content_for :header do %>
   
   <%= javascript_include_tag "jquery.payment.js" %>
+  <%= javascript_include_tag "tpaga.payment.js" %>
 
   <style type="text/css" media="screen">
     .has-error input {
@@ -37,8 +38,17 @@
     }
   </style>
 
+  
+  <script type="text/javascript">
+    var pub_key = '<%= Rails.application.config.tpaga_pub_key%>'
+    Payments.setPublicKey(pub_key);
+    
+  </script>
+
   <script>
-    jQuery(function($) {
+
+    $(function() {
+      
       $('.cardnumber').payment('formatCardNumber');
       $('.securitycode').payment('formatCardCVC');
       $('.duedate').payment('formatCardExpiry');
@@ -51,8 +61,16 @@
 
       e.preventDefault();
 
+      var responseHandler = function(err, data) {
+        if (err) alert(err.code + " - " + err.message);
+        else {
+          $('form').append($('<input type="hidden" name="tokenid">').val(data.token));
+          $('form').get(0).submit();
+        }
+      };
+
       var cardType = $.payment.cardType($('.cardnumber').val());
-      //$('.validation').html(date);
+
       $('.cardnumber').toggleInputError(!$.payment.validateCardNumber($('.cardnumber').val()));
       $('.securitycode').toggleInputError(!$.payment.validateCardCVC($('.securitycode').val(), cardType));
       $('.duedate').toggleInputError(!$.payment.validateCardExpiry($('.duedate').payment('cardExpiryVal')));
@@ -61,14 +79,26 @@
       $('.validation').removeClass('text-danger text-success');
       $('.validation').addClass($('.has-error').length ? 'text-danger' : 'text-success');
       
+
+
       var errors = $('.has-error');
 
       if (!errors.length)
       {
 
-        $(this).unbind('submit').submit();
         $('.alert').removeClass('alert-danger');
         $('.alert').addClass('alert-success');
+
+        Payments.createToken({
+        primaryAccountNumber: $('.cardnumber').val().replace(/\s/g, ""),
+        expirationMonth: $('.duedate').payment('cardExpiryVal').month,
+        expirationYear: $('.duedate').payment('cardExpiryVal').year,
+        cvc: $('.securitycode').val(),
+        cardHolderName: $('.firstname').val() + " " + $('.lastname').val()
+      }, responseHandler);
+
+        
+        
       }
       else
       {

@@ -44,5 +44,6 @@ Rails.application.configure do
   config.tpaga_host = 'sandbox.tpaga.co'
   config.tpaga_base_path = '/api'
   config.tpaga_api_key = 'd13fr8n7vhvkuch3lq2ds5qhjnd2pdd2'
+  config.tpaga_pub_key = 'pk_test_qvbvuthlvqpijnr0elmtg5jh'
 
 end

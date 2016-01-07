@@ -64,19 +64,12 @@ class TpagaChargeController < ApplicationController
 
   def createCreditCard
 
-  	duedate = params[:duedate]
-
-  	card_local = Tpaga::CreditCardCreate.new(
-        primaryAccountNumber: params[:cardnumber].gsub(" ", ""),
-        expirationMonth: duedate[0..1],
-        expirationYear: duedate[5..-1],
-        cardVerificationCode: params[:securitycode],
-        cardHolderName: params[:firstname] + params[:lastname],
-        billingAddress: Tpaga::BillingAddress.new
+   	token_local = Tpaga::Token.new(
+        token: params[:tokenid]
     )
 
     begin
-	    @card = Tpaga::CreditCardApi.add_credit_card(@customer.id, card_local)
+	    @card = Tpaga::TokenApi.add_credit_card_token(@customer.id, token_local)
  	rescue Exception => e  
   		@error = e.message 
   	end
